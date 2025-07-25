@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Stardamper - Ana Sayfa</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <style>
+    html, body {
+      height: 100%;
+      min-height: 100vh;
+      margin: 0;
+      padding: 0;
+      width: 100vw;
+      background: #f6f6f6;
+    }
+    .navbar {
+      background: rgba(255,255,255,0.98) !important;
+      box-shadow: 0 2px 10px #0002;
+      padding-top: 12px;
+      padding-bottom: 12px;
+    }
+    .navbar-brand img {
+      height: 120px;
+      width: 220px;
+      object-fit: contain;
+      margin-left: -25px;
+    }
+    .category-card {
+      border: 1px solid #ddd;
+      border-radius: 12px;
+      padding: 20px;
+      text-align: center;
+      transition: 0.3s;
+      background-color: #fff;
+    }
+    .category-card:hover {
+      transform: scale(1.03);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.13);
+    }
+    .category-card img {
+      width: 100%;
+      height: 140px;
+      object-fit: cover;
+      border-radius: 8px;
+      margin-bottom: 10px;
+    }
+    .footer {
+      margin-top: auto;
+      padding: 20px;
+      text-align: center;
+      background-color: #f1f1f1cc;
+      font-size: 14px;
+    }
+    .main-title {
+      margin-top: 24px;
+      margin-bottom: 0;
+      font-weight: 700;
+      letter-spacing: 1px;
+      background: #fff9;
+      border-radius: 12px;
+      display: inline-block;
+      padding: 10px 24px;
+      box-shadow: 0 4px 18px #0001;
+    }
+    .main-title-container {
+      text-align: center;
+      margin-top: 16px;
+      margin-bottom: 0;
+    }
+    /* Konum kutusu */
+    .map-section {
+      background: #fff;
+      border-radius: 16px;
+      box-shadow: 0 2px 20px #0001;
+      padding: 22px 16px 13px 16px;
+      margin: 48px auto 28px auto;
+      max-width: 700px;
+      text-align: center;
+    }
+    .map-title {
+      font-weight: 600;
+      color: #3156e4;
+      margin-bottom: 8px;
+      font-size: 1.13rem;
+    }
+    .maps-link {
+      color: #3156e4;
+      text-decoration: underline;
+    }
+    @media (max-width: 767px) {
+      .navbar-brand img { height: 80px; width: 150px; }
+      .main-title { font-size: 1.2rem; padding: 7px 8px; }
+      .map-section { padding: 9px 3px 8px 3px; }
+    }
+  </style>
+  <!-- Bootstrap Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+</head>
+<body>
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-light shadow-sm">
+    <div class="container-fluid px-4">
+      <a class="navbar-brand d-flex align-items-center" href="/">
+        <img src="{{ url_for('static', filename='images/logo.jpg') }}" alt="Stardamper Logo">
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Menüyü Aç">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="/">Ana Sayfa</a></li>
+          <li class="nav-item"><a class="nav-link" href="/hakkimizda">Hakkımızda</a></li>
+          <li class="nav-item"><a class="nav-link" href="/iletisim">İletişim</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Sayfa Üstü Ortalanmış Başlık -->
+  <div class="main-title-container">
+    <h1 class="main-title">
+      STAR AİLESİNE HOŞGELDİNİZ
+    </h1>
+  </div>
+
+  <!-- Hizmetlerimiz -->
+  <div class="container text-center mt-5">
+    <h2 class="mb-4" style="background: #fff8; display:inline-block; padding: 6px 24px; border-radius: 12px;">Hizmetlerimiz</h2>
+    <div class="row">
+      <!-- Damper Kartı -->
+      <div class="col-md-4">
+        <div class="category-card">
+          <img src="{{ url_for('static', filename='images/ekran2.jpeg') }}" alt="Damper">
+          <h4>Damper</h4>
+          <p>Dayanıklı damper çözümleri</p>
+          <a href="/damper" class="btn btn-warning mt-2">Tüm Damper Fotoğrafları</a>
+          <br>
+          <a href="https://wa.me/905074365414" class="btn btn-success mt-2" target="_blank" style="background-color:#25D366;border:none;">
+            <i class="bi bi-whatsapp"></i> WhatsApp
+          </a>
+        </div>
+      </div>
+      <!-- Boya, Pasta, Cila Kartı -->
+      <div class="col-md-4">
+        <div class="category-card">
+          <img src="{{ url_for('static', filename='images/ekran1.jpeg') }}" alt="Boya, Pasta, Cila">
+          <h4>Boya, Pasta, Cila</h4>
+          <p>Endüstriyel boya ve cila sistemleri</p>
+          <a href="/boya" class="btn btn-primary mt-2">Tüm Boya Fotoğrafları</a>
+          <a href="/boya-videolar" class="btn btn-danger mt-2">Tüm Boya Videoları</a>
+          <br>
+          <a href="https://wa.me/905366088577" class="btn btn-success mt-2" target="_blank" style="background-color:#25D366;border:none;">
+            <i class="bi bi-whatsapp"></i> WhatsApp
+          </a>
+        </div>
+      </div>
+      <!-- Pompa Kartı -->
+<div class="col-md-4">
+  <div class="category-card">
+    <img src="{{ url_for('static', filename='images/ekran3.png') }}" alt="Pompa">
+    <h4>Pompa</h4>
+    <p>Yüksek verimli pompa sistemleri</p>
+    <a href="/pompa" class="btn btn-success mt-2">Tüm Pompa Fotoğrafları</a>
+    <br>
+          <a href="https://wa.me/905459731482" class="btn btn-success mt-2" target="_blank" style="background-color:#25D366;border:none;">
+            <i class="bi bi-whatsapp"></i> WhatsApp
+          </a>
+        </div>
+      </div>
+
+  <!-- Konum/Harita Kutusu -->
+  <div class="map-section text-center">
+    <div class="map-title"><i class="bi bi-geo-alt-fill"></i> Konumumuz</div>
+    <div style="border-radius: 13px; overflow: hidden; border: 1.5px solid #e6eaf2; box-shadow: 0 2px 14px #0001; max-width:600px; margin:0 auto;">
+      <iframe
+        src="https://www.google.com/maps?q=Horozluhan+Mah.+Abkes+Sk.+No:6,+Stardamper,+Selçuklu,+Konya&hl=tr&z=16&output=embed"
+        width="100%"
+        height="260"
+        style="border:0; min-width:190px; min-height:120px; display:block;"
+        allowfullscreen=""
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"
+        title="Stardamper Konum"
+      ></iframe>
+    </div>
+    <div style="font-size:0.96rem; margin-top:7px; color:#333;">
+      <a
+        href="https://www.google.com/maps/place/Horozluhan+Mah.,+Abkes+Sk.+No:6,+Stardamper,+Selçuklu,+Konya/"
+        target="_blank"
+        class="maps-link"
+      >Google Haritalar'da Aç &rarr;</a>
+    </div>
+    <div style="font-size:0.95rem; color:#222; margin-top: 4px;">
+      Horozluhan Mah. Abkes Sk. No:6, Stardamper, Selçuklu / KONYA
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <div class="footer">
+    &copy; 2025 Stardamper Tüm hakları sakldır.
+  </div>
+
+  <!-- Bootstrap JS (mobil menü için gerekli) -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
